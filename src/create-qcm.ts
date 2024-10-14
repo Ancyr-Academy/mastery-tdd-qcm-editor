@@ -6,14 +6,14 @@ export interface PromptInterface {
   nextAnswer(): Promise<Answer | null>;
 }
 
-export interface QCMStorage {
+export interface StoreQCMInterface {
   save(questions: Question[]): Promise<void>;
 }
 
 export class CreateQCM {
   constructor(
     private readonly prompt: PromptInterface,
-    private readonly storage: QCMStorage,
+    private readonly storage: StoreQCMInterface,
   ) {}
 
   async execute() {

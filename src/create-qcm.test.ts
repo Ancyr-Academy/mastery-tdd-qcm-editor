@@ -1,5 +1,5 @@
 import { Question } from './types.js';
-import { CreateQCM, PromptInterface, QCMStorage } from './create-qcm.js';
+import { CreateQCM, PromptInterface, StoreQCMInterface } from './create-qcm.js';
 
 test('no questions', async () => {
   const storage = new RamStorage();
@@ -216,7 +216,7 @@ class ManyQuestionManyAnswersPrompt implements PromptInterface {
   }
 }
 
-class RamStorage implements QCMStorage {
+class RamStorage implements StoreQCMInterface {
   public questions: Question[] = [];
   async save(questions: Question[]): Promise<void> {
     this.questions = questions;
